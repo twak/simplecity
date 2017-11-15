@@ -1,0 +1,41 @@
+/**
+ * File:    simple.cga
+ * Created: 14 Nov 2017 18:28:22 GMT
+ * Author:  root
+ */
+
+version "2017.0"
+
+attr height = rand(20,50)
+attr firstFloorHeight = rand (2.5, 4)
+attr otherFloorHeights = rand (2.1, 3)
+
+attr groundFloorMoulding = p(0.5)
+attr otherMoulding = p(0.5)
+
+attr gfTileWidth = rand (2.1, 3)
+attr gfWindowWidth = p(0.5)
+
+attr gfLintel = p(0.5)
+
+attr otherLintel = 
+	case p(0.5): rand (0.3, 0.4)
+	else: 0
+	
+attr otherLintelExtra = p(0.5)
+
+attr otherSill = p (0.5)
+attr otherSillExtra = p(0.5)
+
+attr pBalcony = 0.5
+attr individualBalcony = p(0.5)
+ 
+
+@StartRule
+Lot --> Z
+Foo -->
+	extrude(height)
+	comp(f){
+		side: wall |
+		all : X
+	} 
